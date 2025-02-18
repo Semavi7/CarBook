@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Carbook.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    [Migration("20250217144244_mig_first")]
+    [Migration("20250218194603_mig_first")]
     partial class mig_first
     {
         /// <inheritdoc />
@@ -225,8 +225,9 @@ namespace Carbook.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryID"));
 
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryID");
 
