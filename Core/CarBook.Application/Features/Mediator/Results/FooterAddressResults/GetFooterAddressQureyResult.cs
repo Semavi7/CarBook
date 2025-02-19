@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Domain.Entities
+namespace CarBook.Application.Features.Mediator.Results.FooterAddressResults
 {
-    public class FooterAddress
+    public class GetFooterAddressQureyResult
     {
         public int FooterAddressID { get; set; }
         public string Description { get; set; }

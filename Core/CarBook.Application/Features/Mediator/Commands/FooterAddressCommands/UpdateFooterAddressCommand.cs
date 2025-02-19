@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace CarBook.Domain.Entities
+namespace CarBook.Application.Features.Mediator.Commands.FooterAddressCommands
 {
-    public class FooterAddress
+    public class UpdateFooterAddressCommand : IRequest
     {
         public int FooterAddressID { get; set; }
         public string Description { get; set; }

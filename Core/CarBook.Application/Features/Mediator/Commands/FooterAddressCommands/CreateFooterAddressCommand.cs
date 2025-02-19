@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace CarBook.Domain.Entities
+namespace CarBook.Application.Features.Mediator.Commands.FooterAddressCommands
 {
-    public class FooterAddress
+    public class CreateFooterAddressCommand : IRequest
     {
-        public int FooterAddressID { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
