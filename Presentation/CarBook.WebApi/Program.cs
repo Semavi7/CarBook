@@ -1,6 +1,7 @@
 using Carbook.Persistence.Context;
 using Carbook.Persistence.Repositories;
 using Carbook.Persistence.Repositories.BlogRepositories;
+using Carbook.Persistence.Repositories.CarPricingRepostories;
 using Carbook.Persistence.Repositories.CarRepositories;
 using CarBook.Application.Features.CQRS.Handlers.AboutHandlers;
 using CarBook.Application.Features.CQRS.Handlers.BannerHandlers;
@@ -11,6 +12,7 @@ using CarBook.Application.Features.CQRS.Handlers.ContactHandlers;
 using CarBook.Application.Interfaces;
 using CarBook.Application.Interfaces.BlogInterface;
 using CarBook.Application.Interfaces.CarInterface;
+using CarBook.Application.Interfaces.CarPricingInterfaces;
 using CarBook.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,7 @@ builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
+builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepostory));
 
 builder.Services.AddScoped<GetAboutQueryHandler>();
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();
