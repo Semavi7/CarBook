@@ -8,7 +8,7 @@ using MediatR;
 
 namespace CarBook.Application.Features.Mediator.Queries.StatisticsQueries
 {
-    public class GetAvgRentPriceForDailyQuery : IRequest<GetCarBranAndModelByRentPriceDailyMaxQueryResult>
+    public class GetAvgRentPriceForDailyQuery : IRequest<GetAvgRentPriceForDailyQueryResult>
     {
     }
 }

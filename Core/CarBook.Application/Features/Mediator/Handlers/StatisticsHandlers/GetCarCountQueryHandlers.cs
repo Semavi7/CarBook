@@ -10,13 +10,13 @@ using CarBook.Application.Interfaces.CarInterface;
 using CarBook.Domain.Entities;
 using MediatR;
 
-namespace CarBook.Application.Features.Mediator.Handlers
+namespace CarBook.Application.Features.Mediator.Handlers.StatisticsHandlers
 {
-    public class StatisticsHandlers : IRequestHandler<GetCarCountQuery, GetCarCountQueryResult>
+    public class GetCarCountQueryHandlers : IRequestHandler<GetCarCountQuery, GetCarCountQueryResult>
     {
         private readonly ICarRepository _repository;
 
-        public StatisticsHandlers(ICarRepository repository)
+        public GetCarCountQueryHandlers(ICarRepository repository)
         {
             _repository = repository;
         }
