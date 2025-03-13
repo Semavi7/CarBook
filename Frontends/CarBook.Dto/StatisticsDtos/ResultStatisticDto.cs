@@ -16,5 +16,11 @@ namespace CarBook.Dto.StatisticsDtos
         public decimal avgPriceDaily { get; set; }
         public decimal avgRentPriceForWeekly { get; set; }
         public decimal avgRentPriceForMonthly { get; set; }
+        public int carCountByTramissionIsAuto { get; set; }
+        public int carCountByKmSmallerThen1000 { get; set; }
+        public int getCarCountByFuelGasolineOrDisel { get; set; }
+        public int carCountByFuelElectric { get; set; }
+        public string carBrandAndModelByRentPriceMax { get; set; }
+        public string carBrandAndModelByRentPriceDailyMin { get; set; }
     }
 }

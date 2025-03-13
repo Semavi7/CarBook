@@ -119,6 +119,78 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
             }
             #endregion
 
+            #region İstatistik9
+            var responseMessage9 = await client.GetAsync("https://localhost:7062/api/Statistics/GetCarCountByTranmissionIsAuto");
+            if (responseMessage9.IsSuccessStatusCode)
+            {
+                int carCountByTramissionIsAutoRandom = random.Next(0, 101);
+                var jsonData9 = await responseMessage9.Content.ReadAsStringAsync();
+                var values9 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData9);
+                ViewBag.carCountByTramissionIsAuto = values9.carCountByTramissionIsAuto;
+                ViewBag.carCountByTramissionIsAutoRandom = carCountByTramissionIsAutoRandom;
+            }
+            #endregion
+
+            #region İstatistik12
+            var responseMessage12 = await client.GetAsync("https://localhost:7062/api/Statistics/GetCarCountByKmSmallerThen1000");
+            if (responseMessage12.IsSuccessStatusCode)
+            {
+                int carCountByKmSmallerThen1000Random = random.Next(0, 101);
+                var jsonData12 = await responseMessage12.Content.ReadAsStringAsync();
+                var values12 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData12);
+                ViewBag.carCountByKmSmallerThen1000 = values12.carCountByKmSmallerThen1000;
+                ViewBag.carCountByKmSmallerThen1000Random = carCountByKmSmallerThen1000Random;
+            }
+            #endregion
+
+            #region İstatistik13
+            var responseMessage13 = await client.GetAsync("https://localhost:7062/api/Statistics/GetCarCountByFuelGasolineOrDiesel");
+            if (responseMessage13.IsSuccessStatusCode)
+            {
+                int getCarCountByFuelGasolineOrDiselRandom = random.Next(0, 101);
+                var jsonData13 = await responseMessage13.Content.ReadAsStringAsync();
+                var values13 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData13);
+                ViewBag.getCarCountByFuelGasolineOrDisel = values13.getCarCountByFuelGasolineOrDisel;
+                ViewBag.getCarCountByFuelGasolineOrDiselRandom = getCarCountByFuelGasolineOrDiselRandom;
+            }
+            #endregion
+
+            #region İstatistik14
+            var responseMessage14 = await client.GetAsync("https://localhost:7062/api/Statistics/GetCarCountByFuelElectric");
+            if (responseMessage14.IsSuccessStatusCode)
+            {
+                int carCountByFuelElectricRandom = random.Next(0, 101);
+                var jsonData14 = await responseMessage14.Content.ReadAsStringAsync();
+                var values14 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData14);
+                ViewBag.carCountByFuelElectric = values14.carCountByFuelElectric;
+                ViewBag.carCountByFuelElectricRandom = carCountByFuelElectricRandom;
+            }
+            #endregion
+
+            #region İstatistik15
+            var responseMessage15 = await client.GetAsync("https://localhost:7062/api/Statistics/GetCarBrandAndModelByRentPriceDailyMax");
+            if (responseMessage15.IsSuccessStatusCode)
+            {
+                int carBrandAndModelByRentPriceMaxRandom = random.Next(0, 101);
+                var jsonData15 = await responseMessage15.Content.ReadAsStringAsync();
+                var values15 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData15);
+                ViewBag.carBrandAndModelByRentPriceMax = values15.carBrandAndModelByRentPriceMax;
+                ViewBag.carBrandAndModelByRentPriceMaxRandom = carBrandAndModelByRentPriceMaxRandom;
+            }
+            #endregion
+
+            #region İstatistik16
+            var responseMessage16 = await client.GetAsync("https://localhost:7062/api/Statistics/GetCarBrandAndModelByRentPriceDailyMin");
+            if (responseMessage16.IsSuccessStatusCode)
+            {
+                int carBrandAndModelByRentPriceDailyMinRandom = random.Next(0, 101);
+                var jsonData16 = await responseMessage16.Content.ReadAsStringAsync();
+                var values16 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData16);
+                ViewBag.carBrandAndModelByRentPriceDailyMin = values16.carBrandAndModelByRentPriceDailyMin;
+                ViewBag.carBrandAndModelByRentPriceDailyMinRandom = carBrandAndModelByRentPriceDailyMinRandom;
+            }
+            #endregion
+
             return View();
         }
     }
