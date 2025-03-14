@@ -22,5 +22,7 @@ namespace CarBook.Dto.StatisticsDtos
         public int carCountByFuelElectric { get; set; }
         public string carBrandAndModelByRentPriceMax { get; set; }
         public string carBrandAndModelByRentPriceDailyMin { get; set; }
+        public string brandNameByMaxCar { get; set; }
+        public string blogTitleByMaxBlogComment { get; set; }
     }
 }

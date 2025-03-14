@@ -20,12 +20,28 @@ namespace Carbook.Persistence.Repositories.StatisticsRepositories
 
         public string GetBlogTitleByMaxBlogComment()
         {
-            throw new NotImplementedException();
+            //Select Top(1) BlogId.Count(*) as 'Sayi' From Comments Group By BlıgID Order By Sayi Desc
+            var values = _context.Comments.GroupBy(x => x.BlogID).
+                Select(y => new
+                {
+                    BlogID = y.Key,
+                    Count = y.Count()
+                }).OrderByDescending(z => z.Count).Take(1).FirstOrDefault();
+            string blogName = _context.Blogs.Where(x => x.BlogID == values.BlogID).Select(z => z.Title).FirstOrDefault();
+            return blogName;
         }
 
         public string GetBrandNameByMaxCar()
         {
-            throw new NotImplementedException();
+            //Select Top(1) BrandId,Count(*) as 'ToplamArac' From Cars Group By Brands.Name Order By ToplamArac Desc
+            var Values = _context.Cars.GroupBy(x => x.BrandID).
+                Select(y => new
+                {
+                    BrandID = y.Key,
+                    Count = y.Count()
+                }).OrderByDescending(z => z.Count).Take(1).FirstOrDefault();
+            string brandName = _context.Brands.Where(x => x.BrandID == Values.BrandID).Select(y => y.Name).FirstOrDefault();
+            return brandName;
         }
 
         public int GetAuthorCount()

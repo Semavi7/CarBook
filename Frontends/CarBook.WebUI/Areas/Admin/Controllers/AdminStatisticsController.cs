@@ -131,6 +131,31 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
             }
             #endregion
 
+            #region İstatistik10
+            var responseMessage10 = await client.GetAsync("https://localhost:7062/api/Statistics/GetBrandNameByMaxCar");
+            if (responseMessage10.IsSuccessStatusCode)
+            {
+                int brandNameByMaxCarRandom = random.Next(0, 101);
+                var jsonData10 = await responseMessage10.Content.ReadAsStringAsync();
+                var values10 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData10);
+                ViewBag.brandNameByMaxCar = values10.brandNameByMaxCar;
+                ViewBag.brandNameByMaxCarRandom = brandNameByMaxCarRandom;
+            }
+            #endregion
+
+            #region İstatistik11
+            var responseMessage11 = await client.GetAsync("https://localhost:7062/api/Statistics/GetBlogTitleByMaxBlogComment");
+            if (responseMessage11.IsSuccessStatusCode)
+            {
+                int blogTitleByMaxBlogCommentRandom = random.Next(0, 101);
+                var jsonData11 = await responseMessage11.Content.ReadAsStringAsync();
+                var values11 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData11);
+                ViewBag.blogTitleByMaxBlogComment = values11.blogTitleByMaxBlogComment;
+                ViewBag.blogTitleByMaxBlogCommentRandom = blogTitleByMaxBlogCommentRandom;
+            }
+            #endregion
+
+
             #region İstatistik12
             var responseMessage12 = await client.GetAsync("https://localhost:7062/api/Statistics/GetCarCountByKmSmallerThen1000");
             if (responseMessage12.IsSuccessStatusCode)
