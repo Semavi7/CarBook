@@ -27,7 +27,8 @@ public GetCarPricingWithCarQueryHandler(ICarPricingRepository repository)
                 CarPricingId = x.CarPricingID,
                 Brand = x.Car.Brand.Name,
                 CoverImageUrl = x.Car.CoverImageUrl,
-                Model = x.Car.Model
+                Model = x.Car.Model,
+                CarId = x.CarID
             }).ToList();
         }
     }
