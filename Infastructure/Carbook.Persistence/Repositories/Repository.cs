@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Carbook.Persistence.Context;
 using CarBook.Application.Interfaces;
+using CarBook.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Carbook.Persistence.Repositories
@@ -22,6 +23,21 @@ namespace Carbook.Persistence.Repositories
         {
             _contex.Set<T>().Add(entity);
             await _contex.SaveChangesAsync();
+            if (entity is Car car)
+            {
+                var features = await _contex.Features.ToListAsync();
+                if (features.Any())
+                {
+                    var carFeatures = features.Select(f => new CarFeature
+                    {
+                        CarID = car.CarID,
+                        FeatureID = f.FeatureID,
+                        Availabe = false
+                    });
+                    _contex.CarFeatures.AddRange(carFeatures);
+                    await _contex.SaveChangesAsync();
+                }
+            }
         }
 
         public async Task<List<T>> GetAllAsync()

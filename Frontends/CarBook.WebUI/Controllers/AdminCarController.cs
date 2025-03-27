@@ -40,7 +40,7 @@ namespace CarBook.WebUI.Controllers
                                                 select new SelectListItem
                                                 {
                                                     Text = x.name,
-                                                    Value = x.brandId.ToString()
+                                                    Value = x.brandID.ToString()
                                                 }).ToList();
             ViewBag.BrandValues = brandValues;
             return View();
@@ -82,7 +82,7 @@ namespace CarBook.WebUI.Controllers
                                                 select new SelectListItem
                                                 {
                                                     Text = x.name,
-                                                    Value = x.brandId.ToString()
+                                                    Value = x.brandID.ToString()
                                                 }).ToList();
             ViewBag.BrandValues = brandValues;
 
