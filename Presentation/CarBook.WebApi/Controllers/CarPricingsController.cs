@@ -1,4 +1,9 @@
-﻿using CarBook.Application.Features.Mediator.Queries.CarPricingQueries;
+﻿using CarBook.Application.Features.CQRS.Commands.AboutCommands;
+using CarBook.Application.Features.CQRS.Handlers.AboutHandlers;
+using CarBook.Application.Features.Mediator.Commands.AuthorCommands;
+using CarBook.Application.Features.Mediator.Commands.CarPricingCommands;
+using CarBook.Application.Features.Mediator.Queries.CarPricingQueries;
+using CarBook.Application.Features.Mediator.Queries.FeatureQueries;
 using CarBook.Application.Features.Mediator.Queries.LocationQueries;
 using CarBook.Application.Features.Mediator.Results.CarPricingResults;
 using MediatR;
@@ -30,6 +35,13 @@ namespace CarBook.WebApi.Controllers
         {
             var values = await _mediator.Send(new GetCarPricingWithTimePeriodQuery());
             return Ok(values);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateAuthor(CreateCarPricingCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok("Ücret Başarıyla eklendi");
         }
     }
 }

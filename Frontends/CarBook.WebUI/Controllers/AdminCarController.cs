@@ -1,6 +1,8 @@
 ﻿using System.Text;
 using CarBook.Dto.BrandDtos;
 using CarBook.Dto.CarDtos;
+using CarBook.Dto.CarPricingDtos;
+using CarBook.Dto.PricingDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -103,6 +105,37 @@ namespace CarBook.WebUI.Controllers
             var jsonData = JsonConvert.SerializeObject(updateCarDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PutAsync("https://localhost:7062/api/Cars", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateCarPricing(int id)
+        {
+            ViewBag.Id = id;
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7062/api/Pricings");
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultPricingDto>>(jsonData);
+            List<SelectListItem> brandValues = (from x in values
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.Name,
+                                                    Value = x.PricingID.ToString()
+                                                }).ToList();
+            ViewBag.BrandValues = brandValues;
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateCarPricing(CreateCarPricingDto createCarPricingDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createCarPricingDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7062/api/CarPricings", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

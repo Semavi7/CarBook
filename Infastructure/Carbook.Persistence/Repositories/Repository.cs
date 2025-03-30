@@ -35,8 +35,22 @@ namespace Carbook.Persistence.Repositories
                         Availabe = false
                     });
                     _contex.CarFeatures.AddRange(carFeatures);
-                    await _contex.SaveChangesAsync();
                 }
+
+                //var Pricing = await _contex.Pricings.ToListAsync();
+
+                //if (Pricing.Any())
+                //{
+                //    var CarPricing = Pricing.Select(p => new CarPricing
+                //    {
+                //        CarID = car.CarID,
+                //        PricingID = p.PricingID,
+                //        Amount = 0.00m
+                //    });
+
+                //    _contex.CarPricings.AddRange(CarPricing);
+                //}
+                await _contex.SaveChangesAsync();
             }
         }
 
