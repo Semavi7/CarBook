@@ -11,13 +11,9 @@
 			<div class="col-md-12 pills">
 				<div class="bd-example bd-example-tabs">
 					@await Component.InvokeAsync("_CarDetailTabPaneComponentPartial")
-					
-
 					<div class="tab-content" id="pills-tabContent">
 						@await Component.InvokeAsync("_CarDetailCarFeatureByCarIdComponentPartial", new { id = ViewBag.carId })
 						@await Component.InvokeAsync("_CarDetailCarDescriptionByCarIdComponentPartial", new { id = ViewBag.carId })
-						
-
 						<div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
 							<div class="row">
 								<div class="col-md-7">
