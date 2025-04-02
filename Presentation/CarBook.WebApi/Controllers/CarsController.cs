@@ -17,8 +17,9 @@ namespace CarBook.WebApi.Controllers
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
         private readonly GetLast5CarsWithBrandQueryHandler _getLast5CarsWithBrandQueryHandler;
+        private readonly GetCarWithBrandByIdQueryHandler _getCarWithBrandByIdQueryHandler;
 
-        public CarsController(GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQureyHandler, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler, GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler)
+        public CarsController(GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQureyHandler, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler, GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler, GetCarWithBrandByIdQueryHandler getCarWithBrandByIdQueryHandler)
         {
             _getCarQueryHandler = getCarQueryHandler;
             _getCarByIdQureyHandler = getCarByIdQureyHandler;
@@ -27,6 +28,7 @@ namespace CarBook.WebApi.Controllers
             _removeCarCommandHandler = removeCarCommandHandler;
             _getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
             _getLast5CarsWithBrandQueryHandler = getLast5CarsWithBrandQueryHandler;
+            _getCarWithBrandByIdQueryHandler = getCarWithBrandByIdQueryHandler;
         }
 
         [HttpGet]
@@ -75,6 +77,13 @@ namespace CarBook.WebApi.Controllers
         {
             var values = _getLast5CarsWithBrandQueryHandler.Handle();
             return Ok(values);
+        }
+
+        [HttpGet("GetCarWithBrand/{id}")]
+        public IActionResult GetCarWithBrand(int id)
+        {
+            var value = _getCarWithBrandByIdQueryHandler.Handle(new GetCarWithBrandByIdQuery(id));
+            return Ok(value);
         }
     }
 }

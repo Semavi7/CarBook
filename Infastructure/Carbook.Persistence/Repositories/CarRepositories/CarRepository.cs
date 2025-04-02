@@ -31,10 +31,18 @@ namespace Carbook.Persistence.Repositories.CarRepositories
             return values;
         }
 
+        public Car GetCarWithBrand(int id)
+        {
+            var values = _context.Cars.Include(x => x.Brand).FirstOrDefault(x => x.CarID == id);
+            return values;
+        }
+
         public List<Car> GetLast5CarsWithBrands()
         {
             var values = _context.Cars.Include(x => x.Brand).OrderByDescending(x => x.CarID).Take(5).ToList();
             return values;
         }
+
+
     }
 }

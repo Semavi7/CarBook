@@ -1,6 +1,7 @@
 using Carbook.Persistence.Context;
 using Carbook.Persistence.Repositories;
 using Carbook.Persistence.Repositories.BlogRepositories;
+using Carbook.Persistence.Repositories.CarDescriptoinRepostories;
 using Carbook.Persistence.Repositories.CarFeatureRepositories;
 using Carbook.Persistence.Repositories.CarPricingRepostories;
 using Carbook.Persistence.Repositories.CarRepositories;
@@ -17,6 +18,7 @@ using CarBook.Application.Features.CQRS.Handlers.ContactHandlers;
 using CarBook.Application.Features.RepositoryPattern;
 using CarBook.Application.Interfaces;
 using CarBook.Application.Interfaces.BlogInterface;
+using CarBook.Application.Interfaces.CarDescriptionInterfaces;
 using CarBook.Application.Interfaces.CarFeatureInterfaces;
 using CarBook.Application.Interfaces.CarInterface;
 using CarBook.Application.Interfaces.CarPricingInterfaces;
@@ -38,6 +40,7 @@ builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepositor
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
 builder.Services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepository));
 builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
+builder.Services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
 
 builder.Services.AddScoped<GetAboutQueryHandler>();
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();
@@ -64,6 +67,7 @@ builder.Services.AddScoped<UpdateCarCommandHandler>();
 builder.Services.AddScoped<RemoveCarCommandHandler>();
 builder.Services.AddScoped<GetCarWithBrandQueryHandler>();
 builder.Services.AddScoped<GetLast5CarsWithBrandQueryHandler>();
+builder.Services.AddScoped<GetCarWithBrandByIdQueryHandler>();
 
 builder.Services.AddScoped<GetCategoryQueryHandler>();
 builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
