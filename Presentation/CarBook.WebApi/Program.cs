@@ -1,3 +1,4 @@
+using System.Reflection;
 using Carbook.Persistence.Context;
 using Carbook.Persistence.Repositories;
 using Carbook.Persistence.Repositories.BlogRepositories;
@@ -7,6 +8,7 @@ using Carbook.Persistence.Repositories.CarPricingRepostories;
 using Carbook.Persistence.Repositories.CarRepositories;
 using Carbook.Persistence.Repositories.CommentRepositories;
 using Carbook.Persistence.Repositories.RentACarRepositories;
+using Carbook.Persistence.Repositories.ReviewRepositories;
 using Carbook.Persistence.Repositories.StatisticsRepositories;
 using Carbook.Persistence.Repositories.TagCloudRepositories;
 using CarBook.Application.Features.CQRS.Handlers.AboutHandlers;
@@ -23,9 +25,13 @@ using CarBook.Application.Interfaces.CarFeatureInterfaces;
 using CarBook.Application.Interfaces.CarInterface;
 using CarBook.Application.Interfaces.CarPricingInterfaces;
 using CarBook.Application.Interfaces.RentACarInterfaces;
+using CarBook.Application.Interfaces.ReviewInterfaces;
 using CarBook.Application.Interfaces.StatisticsInterfaces;
 using CarBook.Application.Interfaces.TagCloudInterfaces;
 using CarBook.Application.Services;
+using CarBook.Application.Validators.ReviewValidators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +47,7 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepositor
 builder.Services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepository));
 builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 builder.Services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
+builder.Services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
 
 builder.Services.AddScoped<GetAboutQueryHandler>();
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();
@@ -83,7 +90,13 @@ builder.Services.AddScoped<RemoveContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
 
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateReviewValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateReviewValidator>();
+
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
