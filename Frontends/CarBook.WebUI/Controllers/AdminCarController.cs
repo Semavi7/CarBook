@@ -56,6 +56,18 @@ namespace CarBook.WebUI.Controllers
             var responseMessage = await client.PostAsync("https://localhost:7062/api/Cars", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
+                TempData["Message"] = "Araç başarıyla oluşturuldu!";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                
+                var errorContent = await responseMessage.Content.ReadAsStringAsync();
+                var errorJson = JsonConvert.DeserializeObject<dynamic>(errorContent);
+                string title = errorJson.title;
+
+
+                TempData["ErrorMessage"] = $"Hata: {title}";
                 return RedirectToAction("Index");
             }
             return View();

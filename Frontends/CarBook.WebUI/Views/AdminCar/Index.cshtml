@@ -61,3 +61,24 @@
         </div>
     </div> 
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@if (TempData["Message"] != null)
+{
+    <script>
+        swal({
+          title: "Başarılı!",
+          text: "@Html.Raw(TempData["Message"])",
+          icon: "success",
+        });
+    </script>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        swal({
+            title: "Hata!",
+            text: "@Html.Raw(TempData["ErrorMessage"])",
+            icon: "error",
+        });
+    </script>
+}
