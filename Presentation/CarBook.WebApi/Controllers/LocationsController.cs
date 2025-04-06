@@ -20,6 +20,7 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> LocationList()
         {
             var values = await _mediator.Send(new GetLocationQuery());
