@@ -39,7 +39,12 @@
                 <li><a href="/Admin/AdminTestimonial/Index/" class="waves-effect"><i class="fas fa-people-carry"></i><span>Referanslar</span></a></li>
                 <li><a href="#" class="waves-effect"><i class="fas fa-hashtag"></i><span>Etiket Bulutu</span></a></li>
                 <li><a href="#" class="waves-effect"><i class="fas fa-plug"></i><span>Ayarlar</span></a></li>
-                <li><a href="#" class="waves-effect"><i class="fas fa-window-close"></i><span>Çıkış Yap</span></a></li>
+                <li>
+                    <a href="#" class="waves-effect" onclick="document.getElementById('logoutForm').submit();">
+                        <i class="fas fa-window-close"></i><span>Çıkış Yap</span>
+                    </a>
+                    <form id="logoutForm" asp-controller="Login" asp-action="Logout" method="post" style="display: none;"></form>
+                </li>
             </ul>
         </div>
     </div>
