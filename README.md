@@ -90,3 +90,4 @@ Projeyi geliştirmemde yardımcı olan Murat Yücedağ hocama, Udemy’deki değ
 ![Screenshot_12](https://github.com/user-attachments/assets/b36ad3d6-d880-4b13-a960-b2c2adc0cb75)
 ![Screenshot_13](https://github.com/user-attachments/assets/62eff0f0-b2a5-443b-9bd7-26125e4da870)
 ![Screenshot_14](https://github.com/user-attachments/assets/4ed544ef-ece5-4c0e-bce7-ef57d2eed4f9)
+![Screenshot_15](https://github.com/user-attachments/assets/21e58147-c3f6-46b5-bd44-647abe9f9afb)
