@@ -75,3 +75,18 @@ Projeyi geliştirirken aşağıdaki konularda deneyim kazandım:
 Proje sayesinde ASP.NET Core 8.0 ve modern yazılım geliştirme yaklaşımlarını deneyimleme fırsatım oldu. İleride projeyi daha fazla ölçeklendirilebilir hale getirmek ve yeni özellikler eklemek için grafik ve performans iyileştirmelerine odaklanmayı planlıyorum. Ayrıca, kullanıcı deneyimini artıracak daha fazla interaktif unsurlar eklemeyi düşünüyorum.
 
 Projeyi geliştirmemde yardımcı olan Murat Yücedağ hocama, Udemy’deki değerli eğitimi için teşekkür ederim!
+
+![Screenshot_1](https://github.com/user-attachments/assets/53e67f56-6b4a-418b-aace-ff10f6c1cb72)
+![Screenshot_2](https://github.com/user-attachments/assets/338b4ccd-763e-4c0f-9df9-3021bbe28413)
+![Screenshot_3](https://github.com/user-attachments/assets/fb9a3a10-16b7-4e05-9bf4-82b37cf13887)
+![Screenshot_4](https://github.com/user-attachments/assets/c9a74c48-3407-453e-a89d-8bea60969771)
+![Screenshot_5](https://github.com/user-attachments/assets/8e41bebd-f5a3-49ca-8c6a-346daea970f7)
+![Screenshot_6](https://github.com/user-attachments/assets/27d8b46d-1bb9-42df-83db-d6f7d575811d)
+![Screenshot_7](https://github.com/user-attachments/assets/17d88904-273f-42e2-a591-379f852602c0)
+![Screenshot_8](https://github.com/user-attachments/assets/93a5e395-4405-4911-b312-5dc1e9e26886)
+![Screenshot_9](https://github.com/user-attachments/assets/d6d044f2-2c40-4a1e-86c4-7c8ff913b05b)
+![Screenshot_10](https://github.com/user-attachments/assets/9b8876fa-ad03-4ff3-8ae3-5298d8562e70)
+![Screenshot_11](https://github.com/user-attachments/assets/00f471f6-e981-475d-8b13-37cd58052cf9)
+![Screenshot_12](https://github.com/user-attachments/assets/b36ad3d6-d880-4b13-a960-b2c2adc0cb75)
+![Screenshot_13](https://github.com/user-attachments/assets/62eff0f0-b2a5-443b-9bd7-26125e4da870)
+![Screenshot_14](https://github.com/user-attachments/assets/4ed544ef-ece5-4c0e-bce7-ef57d2eed4f9)
