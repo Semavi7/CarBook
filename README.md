@@ -1,4 +1,5 @@
 #CarBook Araç Kiralama Projesi
+
 Bu proje, ASP.NET Core 8.0 ve Onion Mimarisi kullanılarak geliştirilmiş bir araç kiralama web uygulamasıdır. Uygulama iki ana bileşenden oluşmaktadır: Kullanıcı arayüzü ve admin paneli.
 ##🎯 Projenin Amacı
 Bu projeyi geliştirirken ASP.NET Core 8.0, Onion Architecture ve modern yazılım geliştirme ilkelerini uygulamayı hedefledim. Kullanıcılar için kapsamlı bir araç kiralama deneyimi sunarken, admin kullanıcılar için de detaylı bir yönetim paneli sağlamayı amaçladım.
